@@ -65,7 +65,7 @@ function goBottom(element, elementShow, topElementClicked, topElementShow, botto
         backRotate(topElementClicked, topElementShow)
         showItem(bottomItemUnshow)
         bottomItem = bottomItemUnshow
-        body.style.background = `${backgroundColors[Number(`${element.children[0].src}`.replace("http://localhost:5173/src/assets/product", "").replace(".svg", "")) - 1]}`
+        body.style.background = `${backgroundColors[Number(`${element.children[0].src}`.replace(`${window.location.origin}/src/assets/product`, "").replace(".svg", "")) - 1]}`
         setTimeout(() => {
             elementShow.style.display = ""
         }, 500);
@@ -122,12 +122,12 @@ function handleTopClick(element, index) {
         if (productsTopDiv.childNodes[index + 2] != undefined) {
             showFadeLeft(productsTopDiv.childNodes[index + 2])
         }
-        if ((Number(`${productsDiv.childNodes[index + 2].children[0].src}`.replace("http://localhost:5173/src/assets/product", "").replace(".svg", "")) - 1) > 0) {
+        if ((Number(`${productsDiv.childNodes[index + 2].children[0].src}`.replace(`${window.location.origin}/src/assets/product`, "").replace(".svg", "")) - 1) > 0) {
             unshowItem(bottomItem)
         }
         goBottom(productsDiv.childNodes[index], productsDiv.childNodes[index + 2], element, productsTopDiv.childNodes[index + 2], bottomItem);
         showItem(productsDiv.childNodes[index + 2]);
-        body.style.background = `${backgroundColors[Number(`${productsDiv.childNodes[index + 2].children[0].src}`.replace("http://localhost:5173/src/assets/product", "").replace(".svg", "")) - 1]}`
+        body.style.background = `${backgroundColors[Number(`${productsDiv.childNodes[index + 2].children[0].src}`.replace(`${window.location.origin}/src/assets/product`, "").replace(".svg", "")) - 1]}`
     }
 }
 
