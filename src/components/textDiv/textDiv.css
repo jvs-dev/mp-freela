@@ -1,3 +1,9 @@
 .main__textDiv {
     width: 50vw;
 }
+
+@media (max-width: 790px) {
+    .main__textDiv {
+        width: 0vw;
+    }
+}

@@ -62,11 +62,17 @@
     }
 }
 
-@media (max-width: 985px) {
+@media (max-width: 790px) {
+    .main__itensDiv {
+        width: 100vw;
+    }
+}
+
+/* @media (max-width: 985px) {
     .itensDiv__productImageBtn {
         height: unset;
         max-width: 100%;
         width: 100%;
         aspect-ratio: 1/1;
     }
-}
+} */
