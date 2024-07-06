@@ -117,6 +117,7 @@ function unshowItem(element) {
 }
 
 function handleTopClick(element, index) {
+    console.log(`${productsDiv.childNodes[index + 2].children[0].src}`);
     if (productsTopDiv.childNodes[index] != undefined) {
         unShowfadeLeft(element)
         if (productsTopDiv.childNodes[index + 2] != undefined) {
