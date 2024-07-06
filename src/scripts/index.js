@@ -4,6 +4,8 @@ let productsTopDiv = document.getElementById("productsTopDiv")
 let backgroundColors = ["", "radial-gradient(#662d41f0, #501a2f)", "radial-gradient(#303030, #1e1e1e)", "radial-gradient(rgb(255 86 108), rgb(255 31 60))", "radial-gradient(rgb(255 182 192), rgb(255 103 105))", "radial-gradient(rgb(176 71 1), rgb(106 28 0))", "radial-gradient(rgb(233 233 233), rgb(145 145 145))"]
 let bottomItem
 let isAnimating = false
+let midElement
+
 
 function unShowfadeLeft(element) {
     element.style.transition = `0.4s`
@@ -59,6 +61,7 @@ function goBottom(element, elementShow, topElementClicked, topElementShow, botto
         evt.stopPropagation()
         if (isAnimating) return;
         isAnimating = true;
+        midElement = element
         elementShow.style.transition = "0.4s"
         elementShow.style.opacity = "0"
         returnMid(element, initialHeight, initialWidth)
@@ -71,6 +74,12 @@ function goBottom(element, elementShow, topElementClicked, topElementShow, botto
         }, 500);
         setTimeout(() => {
             isAnimating = false;
+            productsDiv.childNodes.forEach(tag => {
+                if (tag.nodeType === 1) {
+                    tag.classList.remove("midElement")
+                }
+            });
+            midElement.classList.add("midElement")
         }, 600);
     }
 }
@@ -81,6 +90,7 @@ function backRotate(topElementClicked, topElementShow) {
 }
 
 function returnMid(element, initialHeight, initialWidth) {
+    midElement = element
     element.style.transition = `0.5s`
     element.style.height = `${initialHeight}px`
     element.style.width = `${initialWidth}px`
@@ -127,6 +137,7 @@ function handleTopClick(element, index) {
         }
         goBottom(productsDiv.childNodes[index], productsDiv.childNodes[index + 2], element, productsTopDiv.childNodes[index + 2], bottomItem);
         showItem(productsDiv.childNodes[index + 2]);
+        midElement = productsDiv.childNodes[index + 2]
         body.style.background = `${backgroundColors[Number(`${productsDiv.childNodes[index + 2].children[0].alt}`.replace("Produto", "")) - 1]}`
     }
 }
@@ -139,6 +150,12 @@ productsTopDiv.childNodes.forEach((element, index) => {
         handleTopClick(element, index)
         setTimeout(() => {
             isAnimating = false;
+            productsDiv.childNodes.forEach(tag => {
+                if (tag.nodeType === 1) {
+                    tag.classList.remove("midElement")
+                }
+            });
+            midElement.classList.add("midElement")
         }, 600);
     }
 });
