@@ -1,7 +1,7 @@
 let body = document.querySelector("body")
 let productsDiv = document.getElementById("productsDiv")
 let productsTopDiv = document.getElementById("productsTopDiv")
-let backgroundColors = ["", "radial-gradient(#662d41f0, #501a2f)", "radial-gradient(#303030, #1e1e1e)", "radial-gradient(rgb(255 86 108), rgb(255 31 60))", "radial-gradient(rgb(255 182 192), rgb(255 103 105))", "radial-gradient(rgb(176 71 1), rgb(106 28 0))", "radial-gradient(rgb(233 233 233), rgb(145 145 145))"]
+let backgroundColors = ["", "radial-gradient(rgb(72 70 76), rgb(81 72 77))", "radial-gradient(rgb(255 41 44), rgb(255 39 68))", "radial-gradient(rgb(22 14 21), rgb(41 50 51))", "radial-gradient(rgb(0 248 20), rgb(255 171 30))", "radial-gradient(rgb(26 26 26), rgb(44 44 44))", "radial-gradient(rgb(184 43 91), rgb(255 68 143))", "radial-gradient(rgb(78 78 78), rgb(10 10 10))", "radial-gradient(rgb(146 84 169), rgb(89 113 249))", "radial-gradient(rgb(0 85 154), rgb(90 67 132))"]
 let bottomItem
 let isAnimating = false
 let midElement
