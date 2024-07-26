@@ -9,6 +9,16 @@ let topItens = [document.getElementById("topItem1"), document.getElementById("to
 let MidItens = [document.getElementById("midItem1"), document.getElementById("midItem2"), document.getElementById("midItem3"), document.getElementById("midItem4"), document.getElementById("midItem5"), document.getElementById("midItem6"), document.getElementById("midItem7"), document.getElementById("midItem8"), document.getElementById("midItem9"), document.getElementById("midItem10")]
 let actualIndex = 0
 let order = "up"
+let isMouseOver = false;
+
+function verifyMouse() {
+    productsDiv.addEventListener('mouseover', () => {
+        isMouseOver = true;
+    });
+    productsDiv.addEventListener('mouseout', () => {
+        isMouseOver = false;
+    });
+}
 
 function unShowfadeLeft(element) {
     element.style.transition = `0.4s`
@@ -170,20 +180,24 @@ productsDiv.childNodes.forEach(element => {
     }
 });
 
+verifyMouse()
+
 setInterval(() => {
-    if (order == "up") {
-        if (actualIndex < 9) {
-            topItens[actualIndex].click()
-            actualIndex++            
+    if (isMouseOver == false) {
+        if (order == "up") {
+            if (actualIndex < 9) {
+                topItens[actualIndex].click()
+                actualIndex++
+            } else {
+                order = "down"
+            }
         } else {
-            order = "down"
-        }
-    } else {
-        if (actualIndex > 0) {
-            MidItens[actualIndex - 1].click()
-            actualIndex = actualIndex - 1
-        } else {
-            order = "up"
+            if (actualIndex > 0) {
+                MidItens[actualIndex - 1].click()
+                actualIndex = actualIndex - 1
+            } else {
+                order = "up"
+            }
         }
     }
 }, 5000);
