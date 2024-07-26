@@ -5,7 +5,10 @@ let backgroundColors = ["", "radial-gradient(rgb(72 70 76), rgb(81 72 77))", "ra
 let bottomItem
 let isAnimating = false
 let midElement
-
+let topItens = [document.getElementById("topItem1"), document.getElementById("topItem2"), document.getElementById("topItem3"), document.getElementById("topItem4"), document.getElementById("topItem5"), document.getElementById("topItem6"), document.getElementById("topItem7"), document.getElementById("topItem8"), document.getElementById("topItem9")]
+let MidItens = [document.getElementById("midItem1"), document.getElementById("midItem2"), document.getElementById("midItem3"), document.getElementById("midItem4"), document.getElementById("midItem5"), document.getElementById("midItem6"), document.getElementById("midItem7"), document.getElementById("midItem8"), document.getElementById("midItem9"), document.getElementById("midItem10")]
+let actualIndex = 0
+let order = "up"
 
 function unShowfadeLeft(element) {
     element.style.transition = `0.4s`
@@ -166,3 +169,21 @@ productsDiv.childNodes.forEach(element => {
         console.log("clicou no Mid");
     }
 });
+
+setInterval(() => {
+    if (order == "up") {
+        if (actualIndex < 9) {
+            topItens[actualIndex].click()
+            actualIndex++            
+        } else {
+            order = "down"
+        }
+    } else {
+        if (actualIndex > 0) {
+            MidItens[actualIndex - 1].click()
+            actualIndex = actualIndex - 1
+        } else {
+            order = "up"
+        }
+    }
+}, 5000);
